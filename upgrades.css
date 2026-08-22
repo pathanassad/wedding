@@ -441,3 +441,47 @@ button.begin {
   color: #d1c5b4 !important;
   line-height: 2 !important;
 }
+
+/* --- COMPREHENSIVE MOBILE RESPONSIVENESS --- */
+@media(max-width: 600px) {
+  /* Scale down the massive title for narrow phones */
+  .hero-title {
+    font-size: clamp(36px, 11vw, 48px) !important;
+  }
+  /* Ensure the subtitle doesn't word wrap awkwardly */
+  .hero-subtitle {
+    font-size: 8px !important;
+    padding: 0 15px;
+    line-height: 1.6 !important;
+  }
+  /* AxS Logo Adjustments */
+  .static-brand {
+    top: 20px !important;
+    left: 20px !important;
+    font-size: 20px !important;
+  }
+  /* Scale down the glowing circle and mandalas so they fit nicely */
+  .global-bg:before {
+    width: 90vw !important;
+    height: 90vw !important;
+  }
+  .global-bg:after {
+    inset: 4% !important;
+  }
+  /* Give the content room to breathe */
+  .home-inner {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+  /* Date lockup smaller */
+  .date-lockup {
+    transform: scale(0.85);
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
+  /* Buttons smaller */
+  button.begin {
+    padding: 15px 22px !important;
+    font-size: 9.5px !important;
+  }
+}
