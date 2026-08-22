@@ -519,3 +519,26 @@ button.begin {
     margin-top: 5vh !important;
   }
 }
+
+/* --- HOME PAGE MOBILE LAYOUT FIXES --- */
+@media (max-width: 600px) {
+  /* Make the couple names stack elegantly with the & in the middle */
+  .couple {
+    font-size: clamp(38px, 11vw, 48px) !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+    margin: 15px 0 25px 0 !important;
+  }
+  .couple-amp {
+    font-size: 24px !important;
+    line-height: 1 !important;
+    margin: 5px 0 !important;
+  }
+  
+  /* Make the Date Lockup fit beautifully */
+  .date-lockup {
+    gap: 15px !important;
+    margin: 25px 0 !important;
+    transform: scale(0.9) !important;
+  }
+}
