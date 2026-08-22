@@ -212,6 +212,201 @@
 </div>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Serif+Display&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=19">
+<link rel="stylesheet" href="upgrades.css?v=19">
+</head>
+<body>
+
+<div class="ambient-bg">
+  <div class="light-ray"></div>
+</div>
+
+<div class="preloader" id="preloader">
+  <div class="pre-monogram">A<span>×</span>S</div>
+  <div class="pre-bar"></div>
+</div>
+
+<header class="topbar" style="justify-content: flex-end;">
+  <button class="menu" id="menuBtn" aria-label="Open menu"><i></i><i></i></button>
+</header>
+
+<aside class="drawer" id="drawer">
+  <div class="drawer-top"><span>ASAD × SANOBAR</span><button id="closeMenu">CLOSE</button></div>
+  <div class="drawer-title">THE WEDDING<br><em>INVITATION</em></div>
+  <nav>
+    <button data-go="home">01 <span>WELCOME</span></button>
+    <button data-go="card">02 <span>THE CARD</span></button>
+    <button data-go="events">03 <span>CELEBRATIONS</span></button>
+    <button data-go="families">04 <span>OUR FAMILIES</span></button>
+    <button data-go="rsvp">05 <span>RSVP & ENQUIRIES</span></button>
+  </nav>
+</aside>
+
+<!-- Global Background Elements -->
+<div class="global-bg" style="position:fixed; inset:0; z-index:1; pointer-events:none; overflow:hidden;">
+  <div class="mandala mandala-a"></div>
+  <div class="mandala mandala-b"></div>
+  <div class="dust-container" id="dustContainer"></div>
+  <div class="home-glow" style="position:absolute; bottom:-15%; width:100%; height:40%; background:radial-gradient(ellipse,rgba(198,160,90,.09),transparent 70%); filter:blur(20px);"></div>
+</div>
+
+<main id="app">
+
+<section class="screen home active" data-screen="home">
+  <div class="static-brand fade-up" style="position:absolute; top:25px; left:35px; font:500 23px 'Cormorant Garamond',serif; color:var(--gold); z-index:100;">A<span style="font-size:11px; margin:0 4px;">×</span>S</div>
+
+  <div class="home-inner" style="position:relative; padding-top: 100px;">
+    
+    <div class="arabic fade-up delay-1">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+    <div class="ornament fade-up delay-1"><span></span><b>◆</b><span></span></div>
+
+    <div class="hero-subtitle fade-up delay-2" style="margin-bottom: 20px;">YOU ARE JOYFULLY INVITED TO THE WEDDING OF</div>
+    
+    <div class="couple fade-up delay-3">
+      <div id="groomDisplay"></div>
+      <div class="couple-amp">&amp;</div>
+      <div id="brideDisplay"></div>
+    </div>
+
+    <div class="date-lockup fade-up delay-4">
+      <strong>18</strong><i>—</i><strong>19</strong>
+      <span>NOVEMBER<br>2026</span>
+    </div>
+
+    <button class="begin fade-up delay-5" data-go="card">
+      <span>OPEN THE INVITATION</span><b>↗</b>
+    </button>
+  </div>
+</section>
+
+<section class="screen card-screen" data-screen="card">
+  <div class="chapter fade-up delay-1">
+    <span>02</span><small>THE INVITATION</small>
+  </div>
+
+  <div class="card-showcase fade-up delay-2">
+    <div class="luxury-card image-card" onclick="openLightbox('Invitation.png')">
+      <img src="Invitation.png" alt="Wedding Invitation" class="invitation-image" />
+      <div class="card-glare"></div>
+      <div class="card-zoom-hint">CLICK TO VIEW</div>
+    </div>
+  </div>
+
+  <div class="next-action fade-up delay-4">
+    <button class="begin" data-go="events">
+      <span>CONTINUE TO CELEBRATIONS</span><b>→</b>
+    </button>
+  </div>
+</section>
+
+<section class="screen events-screen" data-screen="events">
+  <div class="chapter fade-up delay-1"><span>03</span><small>THE CELEBRATIONS</small></div>
+  <div class="chapter-heading centered fade-up delay-2">
+    <div class="eyebrow">TWO EVENINGS · ONE BEGINNING</div>
+    <h1 class="gold-text">Be part of<br><em>the moments.</em></h1>
+  </div>
+
+  <div class="event-list">
+    <article class="event-card fade-up delay-3">
+      <div class="event-number">01</div>
+      <div class="event-left">
+        <div class="event-type">NIKAH</div>
+        <div class="big-day">18</div>
+        <div class="event-date">NOVEMBER 2026</div>
+        <div class="event-time">AFTER MAGHRIB</div>
+      </div>
+      <div class="event-right">
+        <h2 id="nikahVenue"></h2>
+        <p id="nikahAddress"></p>
+        <a id="nikahMap" target="_blank" rel="noopener">VIEW LOCATION ↗</a>
+      </div>
+    </article>
+
+    <article class="event-card fade-up delay-4">
+      <div class="event-number">02</div>
+      <div class="event-left">
+        <div class="event-type">WALIMA</div>
+        <div class="big-day">19</div>
+        <div class="event-date">NOVEMBER 2026</div>
+        <div class="event-time">AFTER MAGHRIB</div>
+      </div>
+      <div class="event-right">
+        <h2 id="walimaVenue"></h2>
+        <p id="walimaAddress"></p>
+        <a id="walimaMap" target="_blank" rel="noopener">VIEW LOCATION ↗</a>
+      </div>
+    </article>
+  </div>
+
+  <div class="countdown-strip fade-up delay-5">
+    <span>UNTIL THE NIKAH</span>
+    <strong id="countdown">—</strong>
+  </div>
+
+  <div class="next-action fade-up delay-5">
+    <button class="begin" data-go="families">
+      <span>MEET OUR FAMILIES</span><b>→</b>
+    </button>
+  </div>
+</section>
+
+<section class="screen families-screen" data-screen="families">
+  <div class="chapter fade-up delay-1"><span>04</span><small>OUR FAMILIES</small></div>
+  <div class="chapter-heading fade-up delay-2">
+    <h1 class="gold-text">The people<br><em>behind us.</em></h1>
+  </div>
+
+  <div class="family-layout fade-up delay-3">
+    <div class="family-card">
+      <span>GROOM'S FAMILY</span>
+      <h2 id="groomFather"></h2>
+      <p id="groomMother"></p>
+    </div>
+
+    <div class="family-emblem"><span>A</span><i>×</i><span>S</span></div>
+
+    <div class="family-card right">
+      <span>BRIDE'S FAMILY</span>
+      <h2 id="brideFather"></h2>
+      <p id="brideMother"></p>
+    </div>
+  </div>
+
+  <p class="family-quote fade-up delay-4">With gratitude for the love, prayers and blessings that brought us here.</p>
+  
+  <div class="next-action fade-up delay-5">
+    <button class="begin" data-go="rsvp">
+      <span>RSVP & ENQUIRIES</span><b>→</b>
+    </button>
+  </div>
+</section>
+
+
+<section class="screen rsvp-screen" data-screen="rsvp">
+  <div class="rsvp-halo fade-up delay-1"></div>
+  <div class="chapter rsvp-chapter fade-up delay-1"><span>05</span><small>RSVP & ENQUIRIES</small></div>
+
+  <div class="rsvp-inner">
+    <div class="eyebrow fade-up delay-2">A WARM WELCOME AWAITS</div>
+    <h1 class="fade-up delay-3 gold-text">We would be honoured<br><em>to have you with us.</em></h1>
+    <p class="fade-up delay-4">Your presence and blessings would mean the world to us.</p>
+    <div class="contact-list fade-up delay-5" id="contacts"></div>
+    <div class="closing">18 — 19 NOVEMBER 2026 · PUNE</div>
+  </div>
+</section>
+
+</main>
+
+<div class="bottom-nav" id="bottomNav">
+  <button data-go="home">WELCOME</button>
+  <button data-go="card">CARD</button>
+  <button data-go="events">EVENTS</button>
+  <button data-go="families">FAMILIES</button>
+  <button data-go="rsvp">RSVP</button>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <img src="" id="lightbox-img" alt="Enlarged view" />
   <button class="close-lightbox" aria-label="Close lightbox">✕</button>
 </div>
@@ -221,7 +416,7 @@
   <source src="bg-music.mp3" type="audio/mp3">
 </audio>
 
-<script src="config.js?v=18"></script>
-<script src="script.js?v=18"></script>
+<script src="config.js?v=20"></script>
+<script src="script.js?v=20"></script>
 </body>
 </html>

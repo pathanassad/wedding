@@ -563,3 +563,49 @@ button.begin {
     margin-bottom: 5px !important;
   }
 }
+
+/* --- REFINED MOBILE POLISH --- */
+@media (max-width: 600px) {
+  /* 1. Home Page Spacing Tweaks */
+  .home-inner {
+    padding-top: 70px !important;
+  }
+  .arabic {
+    font-size: 24px !important;
+    margin-bottom: 8px !important;
+  }
+  .ornament {
+    max-width: 180px !important;
+    margin: 0 auto 20px auto !important;
+  }
+  .hero-subtitle {
+    font-size: 8px !important;
+    margin-bottom: 12px !important;
+    letter-spacing: 0.15em !important;
+  }
+  .couple {
+    margin: 15px 0 20px 0 !important;
+  }
+  .date-lockup {
+    margin: 15px 0 25px 0 !important;
+    transform: scale(0.85) !important;
+  }
+
+  /* 2. Families Page Mobile Centering */
+  .family-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 35px !important;
+  }
+  .family-card, .family-card.right {
+    text-align: center !important;
+    width: 100% !important;
+  }
+  .family-emblem {
+    order: 0 !important; /* Put emblem back in the middle between the families */
+    margin: 10px auto !important;
+  }
+}
