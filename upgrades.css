@@ -1,0 +1,341 @@
+﻿/* --- NEXT LEVEL UI UPGRADES --- */
+
+/* Gold Foil Text Effect */
+.gold-text {
+  background: linear-gradient(45deg, var(--gold) 0%, var(--gold2) 50%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: goldShine 6s linear infinite;
+  display: inline-block;
+}
+@keyframes goldShine {
+  to { background-position: 200% center; }
+}
+
+/* Staggered Fade Up Animations */
+.fade-up { opacity: 0; transform: translateY(30px); }
+.screen.active .fade-up { animation: fadeUpAnim 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+@keyframes fadeUpAnim {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Button Shine Effect */
+button.begin { position: relative; overflow: hidden; border-radius: 4px; }
+button.begin::before {
+  content: ""; position: absolute; top: 0; left: -150%; width: 50%; height: 100%;
+  background: linear-gradient(to right, transparent, rgba(232, 205, 145, 0.3), transparent);
+  transform: skewX(-25deg); transition: 0.5s;
+}
+button.begin:hover::before { animation: shineSweep 1.5s infinite; }
+@keyframes shineSweep {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+/* Floating Dust Particles */
+.dust-container { position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+.dust { position: absolute; width: 2px; height: 2px; background: var(--gold2); border-radius: 50%; filter: blur(1px); opacity: 0; animation: floatDust 10s infinite linear; }
+@keyframes floatDust {
+  0% { transform: translateY(0) scale(0.5); opacity: 0; }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.6; }
+  100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+}
+
+/* Drawer Menu Animations */
+.drawer nav button {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.drawer.open nav button {
+  opacity: 1;
+  transform: translateX(0);
+}
+.drawer.open nav button:nth-child(1) { transition-delay: 0.1s; }
+.drawer.open nav button:nth-child(2) { transition-delay: 0.2s; }
+.drawer.open nav button:nth-child(3) { transition-delay: 0.3s; }
+.drawer.open nav button:nth-child(4) { transition-delay: 0.4s; }
+.drawer.open nav button:nth-child(5) { transition-delay: 0.5s; }
+
+.drawer-title {
+  background: linear-gradient(45deg, var(--gold) 0%, var(--gold2) 50%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: goldShine 6s linear infinite;
+}
+
+/* Next Action Buttons */
+.next-action {
+  text-align: center;
+  margin-top: 45px;
+  padding-bottom: 20px;
+}
+.next-action button.begin {
+  padding: 18px 30px;
+  border-radius: 50px;
+  background: rgba(198,160,90,.1);
+  backdrop-filter: blur(8px);
+}
+.next-action button.begin:hover {
+  background: var(--gold);
+  color: #000;
+  box-shadow: 0 0 25px rgba(198,160,90,.4);
+}
+
+/* Ambient Animated Background */
+.ambient-bg { pointer-events: none !important;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #060503;
+  pointer-events: none;
+}
+.ambient-blob {
+  position: absolute;
+  filter: blur(120px);
+  opacity: 0.4;
+  border-radius: 50%;
+  animation: ambientMove 25s infinite alternate ease-in-out;
+}
+.ambient-blob.b1 {
+  width: 60vw; height: 60vw;
+  background: rgba(198,160,90, 0.15);
+  top: -10%; left: -10%;
+}
+.ambient-blob.b2 {
+  width: 50vw; height: 50vw;
+  background: rgba(232, 205, 145, 0.1);
+  bottom: -20%; right: -10%;
+  animation-delay: -5s;
+}
+.ambient-blob.b3 {
+  width: 40vw; height: 40vw;
+  background: rgba(150, 139, 120, 0.12);
+  top: 40%; left: 30%;
+  animation-delay: -12s;
+  animation-duration: 30s;
+}
+
+@keyframes ambientMove {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(10vw, 5vh) scale(1.1); }
+  100% { transform: translate(-5vw, 15vh) scale(0.9); }
+}
+
+/* Ensure screens have transparent background to show the ambient one */
+html, body {
+  font-family: 'Montserrat', sans-serif !important;
+  background: transparent !important;
+}
+.screen, .home, .card-screen, .events-screen, .families-screen, .locations-screen, .rsvp-screen {
+  background: transparent !important;
+}
+
+/* Elegant Scrollbar */
+.screen {
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(198,160,90,.3) transparent !important;
+}
+.screen::-webkit-scrollbar {
+  display: block !important;
+  width: 6px !important;
+}
+.screen::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+.screen::-webkit-scrollbar-thumb {
+  background: rgba(198,160,90,.3) !important;
+  border-radius: 10px !important;
+}
+.screen::-webkit-scrollbar-thumb:hover {
+  background: rgba(198,160,90,.6) !important;
+}
+
+/* Home Screen Fixes */
+.home {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  padding-bottom: 60px;
+}
+.home-inner {
+  padding-bottom: 120px !important;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* New Ambient Background */
+.ambient-bg { pointer-events: none !important;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(circle at 50% 0%, #1a150d 0%, #060503 70%) !important;
+}
+.ambient-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.light-ray {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 180deg at 50% 50%, transparent 0deg, rgba(198,160,90,0.04) 45deg, transparent 90deg);
+  animation: rotateRay 60s linear infinite;
+  pointer-events: none;
+}
+@keyframes rotateRay {
+  100% { transform: rotate(360deg); }
+}
+
+/* Clean Card Showcase */
+.card-showcase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 120px auto 40px;
+  width: min(90vw, 450px);
+}
+.card-showcase .luxury-card {
+  width: 100%;
+  aspect-ratio: auto; /* removes 5/7 constraint */
+  padding: 0;
+}
+.card-showcase .invitation-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Elite Background - Fluid Orbs */
+.ambient-bg {
+  background: #020101 !important; /* Pitch black rich base */
+}
+.light-ray {
+  display: none !important; /* Remove the old ray */
+}
+.ambient-bg::before {
+  content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(198,160,90,0.06), transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(232, 205, 145, 0.04), transparent 40%),
+              radial-gradient(circle at 20% 80%, rgba(150, 139, 120, 0.05), transparent 50%);
+  animation: eliteFluid 40s infinite alternate ease-in-out;
+  pointer-events: none;
+}
+@keyframes eliteFluid {
+  0% { transform: scale(1) translate(0, 0) rotate(0deg); }
+  50% { transform: scale(1.2) translate(-5%, 5%) rotate(10deg); }
+  100% { transform: scale(0.9) translate(5%, -5%) rotate(-10deg); }
+}
+
+/* Elite Hover Effects on Card Showcase */
+.card-showcase {
+  perspective: 2000px;
+}
+.luxury-card.image-card {
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+  position: relative;
+  transform-style: preserve-3d;
+}
+.luxury-card.image-card:hover {
+  /* Disable CSS transform since JS takes over */
+  transform: none;
+  box-shadow: -20px 50px 100px rgba(0,0,0,0.9), 0 0 50px rgba(198,160,90,0.15);
+  border-color: rgba(232, 205, 145, 0.7);
+}
+
+.card-glare {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  border-radius: inherit;
+}
+.luxury-card.image-card:hover .card-glare {
+  opacity: 1;
+}
+
+/* Magical Golden Bokeh Updates */
+.ambient-bg {
+  background: radial-gradient(circle at 50% 100%, #171108 0%, #030201 80%) !important;
+}
+.ambient-bg::before {
+  display: none !important;
+}
+.bokeh-orb {
+  position: absolute;
+  bottom: -200px;
+  background: radial-gradient(circle, rgba(232, 205, 145, 0.18) 0%, rgba(198,160,90,0.05) 40%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(12px);
+  animation: floatBokeh linear infinite;
+  pointer-events: none;
+}
+@keyframes floatBokeh {
+  0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+  10% { opacity: 0.8; }
+  50% { transform: translateY(-50vh) translateX(80px) scale(1.2); }
+  90% { opacity: 0.8; }
+  100% { transform: translateY(-120vh) translateX(-80px) scale(0.9); opacity: 0; }
+}
+
+/* Sparking Embers Update */
+.dust { 
+  background: rgba(232, 205, 145, 0.9) !important;
+  box-shadow: 0 0 15px rgba(232, 205, 145, 0.8) !important;
+  animation-name: floatEmber !important; 
+}
+@keyframes floatEmber {
+  0% { transform: translateY(0) scale(0.5); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(-300px) scale(1.5); opacity: 0; }
+}
+
+/* Floating Music Player */
+.music-toggle {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  z-index: 100;
+  background: rgba(10, 8, 5, 0.6);
+  border: 1px solid rgba(198,160,90, 0.3);
+  backdrop-filter: blur(8px);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: var(--gold2);
+  font-size: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+.music-toggle:hover {
+  background: rgba(198,160,90, 0.15);
+  transform: scale(1.05);
+}
+.music-icon {
+  letter-spacing: 1px;
+}
+.music-icon.paused {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
