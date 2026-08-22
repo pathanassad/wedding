@@ -485,3 +485,37 @@ button.begin {
     font-size: 9.5px !important;
   }
 }
+
+/* --- FIX OVERLAPPING CHAPTER HEADERS --- */
+/* By moving chapters into the natural document flow, they can never overlap the headings below them */
+.chapter {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  margin: 70px 0 10px 40px !important;
+  z-index: 10 !important;
+}
+.chapter-heading {
+  padding-top: 10px !important; /* Remove the massive padding since chapter now pushes it down naturally */
+}
+
+/* Adjust specifically for mobile */
+@media (max-width: 800px) {
+  .chapter {
+    margin: 50px 0 10px 20px !important;
+  }
+}
+
+/* Fix RSVP centering specifically */
+.rsvp-chapter {
+  margin: 80px auto 20px auto !important;
+  justify-content: center !important;
+}
+.rsvp-inner {
+  padding-top: 10px !important; 
+}
+@media (max-width: 600px) {
+  .card-showcase {
+    margin-top: 5vh !important;
+  }
+}
