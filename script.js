@@ -139,26 +139,34 @@ if (card) {
   });
 }
 
-// Music Player Logic
+// Music Player Logic (Mobile Optimized)
 const bgMusic = document.getElementById("bgMusic");
 
 if (bgMusic) {
   let isPlaying = false;
   
-  // Try to autoplay on first user interaction with the page
   const playAudio = () => {
     if (!isPlaying) {
-      bgMusic.play().then(() => {
-        isPlaying = true;
-      }).catch((e) => {
-        // Autoplay blocked, wait for manual click
-      });
-      // Remove listeners once triggered
-      document.removeEventListener('click', playAudio);
-      document.removeEventListener('touchstart', playAudio);
+      const playPromise = bgMusic.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          isPlaying = true;
+          document.removeEventListener('click', playAudio);
+          document.removeEventListener('touchend', playAudio);
+        }).catch((e) => {
+          console.log('Autoplay blocked');
+        });
+      }
     }
   };
   
-  document.addEventListener('click', playAudio);
-  document.addEventListener('touchstart', playAudio);
+  // Bind to document
+  document.addEventListener('click', playAudio, { once: true });
+  document.addEventListener('touchend', playAudio, { once: true });
+  
+  // Bind directly to action buttons to guarantee iOS playback
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', playAudio);
+    btn.addEventListener('touchend', playAudio);
+  });
 }
