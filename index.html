@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Serif+Display&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=6">
-<link rel="stylesheet" href="upgrades.css?v=6">
+<link rel="stylesheet" href="styles.css?v=14">
+<link rel="stylesheet" href="upgrades.css?v=14">
 </head>
 <body>
 
@@ -32,9 +32,7 @@
   <div class="pre-bar"></div>
 </div>
 
-<header class="topbar">
-  <button class="brand" data-go="home" aria-label="Home">A<span>×</span>S</button>
-  <div class="top-title">WEDDING INVITATION</div>
+<header class="topbar" style="justify-content: flex-end;">
   <button class="menu" id="menuBtn" aria-label="Open menu"><i></i><i></i></button>
 </header>
 
@@ -50,21 +48,26 @@
   </nav>
 </aside>
 
-<main id="app">
-
-<section class="screen home active" data-screen="home">
+<!-- Global Background Elements -->
+<div class="global-bg" style="position:fixed; inset:0; z-index:1; pointer-events:none; overflow:hidden;">
   <div class="mandala mandala-a"></div>
   <div class="mandala mandala-b"></div>
   <div class="dust-container" id="dustContainer"></div>
-  <div class="home-glow"></div>
+  <div class="home-glow" style="position:absolute; bottom:-15%; width:100%; height:40%; background:radial-gradient(ellipse,rgba(198,160,90,.09),transparent 70%); filter:blur(20px);"></div>
+</div>
 
-  <div class="home-inner">
+<main id="app">
+
+<section class="screen home active" data-screen="home">
+  <div class="static-brand fade-up" style="position:absolute; top:25px; left:35px; font:500 23px 'Cormorant Garamond',serif; color:var(--gold); z-index:100;">A<span style="font-size:11px; margin:0 4px;">×</span>S</div>
+
+  <div class="home-inner" style="position:relative; padding-top: 100px;">
+    
     <div class="arabic fade-up delay-1">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
     <div class="ornament fade-up delay-1"><span></span><b>◆</b><span></span></div>
 
-    <div class="hero-title fade-up delay-2 gold-text">WEDDING<br><em>INVITATION</em></div>
-    <div class="hero-subtitle fade-up delay-3">TOGETHER WITH THEIR FAMILIES</div>
-
+    <div class="hero-subtitle fade-up delay-2" style="margin-bottom: 20px;">YOU ARE JOYFULLY INVITED TO THE WEDDING OF</div>
+    
     <div class="couple fade-up delay-3">
       <div id="groomDisplay"></div>
       <div class="couple-amp">&amp;</div>
@@ -80,8 +83,6 @@
       <span>OPEN THE INVITATION</span><b>↗</b>
     </button>
   </div>
-
-  <div class="home-footer"><span>18 — 19 NOVEMBER 2026</span><span>PUNE · MAHARASHTRA</span></div>
 </section>
 
 <section class="screen card-screen" data-screen="card">
@@ -222,7 +223,7 @@
 
 
 
-<script src="config.js?v=6"></script>
-<script src="script.js?v=6"></script>
+<script src="config.js?v=12"></script>
+<script src="script.js?v=12"></script>
 </body>
 </html>

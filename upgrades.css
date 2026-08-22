@@ -339,3 +339,105 @@ html, body {
   opacity: 0.5;
   text-decoration: line-through;
 }
+
+/* --- ACCESSIBILITY & LEGIBILITY UPGRADES --- */
+
+/* 1. Muted Ultra-Small Text */
+.chapter small,
+.bottom-nav button,
+.event-date,
+.countdown-strip,
+.closing,
+.map-note,
+.drawer nav button span,
+.date-lockup span {
+  font-size: 10px !important;
+  color: #d1c5b4 !important; /* Brighter muted grey */
+  letter-spacing: 0.18em !important;
+}
+
+/* 2. Gold Ultra-Small Text */
+.hero-subtitle,
+.eyebrow,
+.event-type,
+.event-time,
+.family-card > span {
+  font-size: 10.5px !important;
+  color: #e3ca98 !important; /* Brighter gold */
+  letter-spacing: 0.2em !important;
+  font-weight: 500 !important;
+}
+
+/* 3. Primary Action Buttons */
+button.begin {
+  font-size: 11px !important;
+  letter-spacing: 0.15em !important;
+  font-weight: 500 !important;
+}
+
+/* 4. Body Paragraphs */
+.event-right p, 
+.family-card p, 
+.location-card p, 
+.rsvp-inner > p {
+  font-size: 13px !important;
+  line-height: 1.8 !important;
+  color: #e8decc !important;
+}
+
+/* 5. Bottom Nav Active State */
+.bottom-nav button.active, 
+.bottom-nav button:hover {
+  color: #ffffff !important;
+  background: rgba(198,160,90, 0.2) !important;
+}
+
+/* Boost base font weight for legibility */
+html, body {
+  font-weight: 400 !important;
+}
+
+/* Ensure all small elements have at least 500 weight */
+.chapter small,
+.bottom-nav button,
+.event-date,
+.countdown-strip,
+.closing,
+.map-note,
+.drawer nav button span,
+.date-lockup span,
+.event-type,
+.event-time,
+.family-card > span,
+.hero-subtitle,
+.eyebrow {
+  font-weight: 500 !important;
+  color: #ffffff !important; /* Force stark white for absolute maximum contrast */
+}
+
+/* And bump paragraph weight slightly */
+.event-right p, 
+.family-card p, 
+.location-card p, 
+.rsvp-inner > p {
+  font-weight: 400 !important;
+  color: #f5f0e6 !important; /* Almost white */
+}
+
+/* Make buttons very clear */
+button.begin {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+/* Family Quote Font Upgrade */
+.family-quote {
+  font-family: 'Montserrat', sans-serif !important;
+  font-style: normal !important;
+  font-weight: 300 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.25em !important;
+  text-transform: uppercase !important;
+  color: #d1c5b4 !important;
+  line-height: 2 !important;
+}
