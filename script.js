@@ -151,8 +151,6 @@ if (bgMusic) {
       if (playPromise !== undefined) {
         playPromise.then(() => {
           isPlaying = true;
-          document.removeEventListener('click', playAudio);
-          document.removeEventListener('touchend', playAudio);
         }).catch((e) => {
           console.log('Autoplay blocked');
         });
@@ -160,13 +158,10 @@ if (bgMusic) {
     }
   };
   
-  // Bind to document
-  document.addEventListener('click', playAudio, { once: true });
-  document.addEventListener('touchend', playAudio, { once: true });
-  
-  // Bind directly to action buttons to guarantee iOS playback
-  document.querySelectorAll('button').forEach(btn => {
-    btn.addEventListener('click', playAudio);
-    btn.addEventListener('touchend', playAudio);
-  });
+  // Bind ONLY to the 'OPEN THE INVITATION' button
+  const openInviteBtn = document.querySelector('.home .begin');
+  if (openInviteBtn) {
+    openInviteBtn.addEventListener('click', playAudio);
+    openInviteBtn.addEventListener('touchend', playAudio);
+  }
 }
