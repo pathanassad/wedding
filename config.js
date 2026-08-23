@@ -7,7 +7,7 @@ window.WEDDING = {
     "brideDisplay": "SANOBAR"
   },
   "families": {
-    "groomFather": "Late Ayubkhan Pathan",
+    "groomFather": "Late Ayyubkhan Pathan",
     "groomMother": "Tarannum Pathan",
     "brideFather": "Ashraf Sayyed",
     "brideMother": "Rubina Sayyed"
